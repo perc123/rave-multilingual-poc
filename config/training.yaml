@@ -1,0 +1,31 @@
+
+# RAVE Training Configuration
+# Multilingual voice data
+
+model:
+  # Encoder/Decoder architecture
+  latent_size: 128
+  num_ratios: [2, 2, 2, 2, 2]  # Compression: 2^5 = 32x
+  
+training:
+  batch_size: 8
+  num_epochs: 100
+  learning_rate: 0.0001
+  sample_rate: 16000
+  
+  # GPU settings
+  num_workers: 4
+  device: cuda
+  
+data:
+  segment_length: 16000  # 1 second chunks
+  
+augmentation:
+  enabled: true
+  pitch_shift: 2  # semitones
+  time_stretch: 0.1
+  
+logging:
+  checkpoint_interval: 10  # Save every 10 epochs
+  tensorboard_dir: logs
+
