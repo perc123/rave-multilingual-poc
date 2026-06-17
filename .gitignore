@@ -11,10 +11,12 @@ checkpoints/
 *.pt
 *.pth
 
-# Logs
+# Logs & reports
 logs/
 tensorboard_logs/
 *.log
+training_log.txt
+output_log.txt
 
 # Python
 __pycache__/
@@ -28,3 +30,8 @@ venv/
 .vscode/
 .idea/
 *.swp
+
+# General text files (but keep docs)
+**/*.txt
+!README.txt
+!SETUP.txt
