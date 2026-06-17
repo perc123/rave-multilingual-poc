@@ -1,0 +1,30 @@
+# Audio data (large files)
+data/raw/**/*.flac
+data/raw/**/*.wav
+data/raw/**/*.webm
+data/raw/**/*.mp3
+data/processed/**/*.wav
+data/processed/**/*.mp3
+
+# Model checkpoints
+checkpoints/
+*.pt
+*.pth
+
+# Logs
+logs/
+tensorboard_logs/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
