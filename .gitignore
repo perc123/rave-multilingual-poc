@@ -37,3 +37,5 @@ venv/
 !SETUP.txt
 data/raw/arabic/card.md
 data/raw/arabic/metadata.csv
+ml_results
+
