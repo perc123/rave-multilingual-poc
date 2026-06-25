@@ -1,0 +1,27 @@
+diff --git a/rave/model.py b/rave/model.py
+index d30002b..06cd3a0 100644
+--- a/rave/model.py
++++ b/rave/model.py
+@@ -434,6 +434,10 @@ class RAVE(pl.LightningModule):
+         z = self.encoder.reparametrize(z)[0]
+         y = self.decode(z)
+ 
++        min_len = min(x.shape[-1], y.shape[-1])
++        x = x[..., :min_len]
++        y = y[..., :min_len]
++
+         distance = self.audio_distance(x, y)
+         full_distance = sum(distance.values())
+ 
+diff --git a/scripts/train.py b/scripts/train.py
+index 22ddf22..635e7b7 100644
+--- a/scripts/train.py
++++ b/scripts/train.py
+@@ -251,6 +251,7 @@ def main(argv):
+         max_steps=FLAGS.max_steps,
+         profiler="simple",
+         enable_progress_bar=FLAGS.progress,
++        num_sanity_val_steps=0,
+         **val_check,
+     )
+ 
